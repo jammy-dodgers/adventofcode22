@@ -1,4 +1,4 @@
-# Yep
+# ...
 - [day 1](src/bin/day1.rs)
 - [day 2](src/bin/day2.rs)
 - [day 3](src/bin/day3.rs)
