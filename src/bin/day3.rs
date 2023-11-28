@@ -13,10 +13,15 @@ fn main() {
             matching.dedup();
             running_total += matching.iter().map(|c| to_value(*c)).sum::<i32>();
         }
-        
-        badge_total += to_value(
-            *Vec::from_iter(elf1.chars().filter(|x| elf2.contains(*x) && elf3.contains(*x))).first().unwrap());
 
+        badge_total += to_value(
+            *Vec::from_iter(
+                elf1.chars()
+                    .filter(|x| elf2.contains(*x) && elf3.contains(*x)),
+            )
+            .first()
+            .unwrap(),
+        );
     }
 
     println!("Part 1: {}", running_total);
@@ -24,8 +29,11 @@ fn main() {
 }
 
 fn to_value(c: char) -> i32 {
-    if c.is_ascii_uppercase() 
-        { c as i32 - 'A' as i32 + 27 } // A-Z 27-52
-    else 
-        { c as i32 - 'a' as i32 + 1 } // a-z 1-26
+    if c.is_ascii_uppercase() {
+        c as i32 - 'A' as i32 + 27
+    }
+    // A-Z 27-52
+    else {
+        c as i32 - 'a' as i32 + 1
+    } // a-z 1-26
 }
